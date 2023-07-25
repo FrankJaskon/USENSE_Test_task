@@ -1,0 +1,73 @@
+$red: Salmon
+$black: black
+$blue: MediumSlateBlue
+$yellow: Khaki
+$green: SpringGreen
+$gray: gray
+$lightgray: lightgray
+
+$border-radius: 4px
+
+.container
+	display: flex
+	flex-direction: column
+	gap: 5px
+
+.user-form
+	min-width: 200px
+	max-width: 500px
+	margin: 0 auto
+	padding: 1rem
+	display: flex
+	flex-direction: column
+	gap: 15px
+	background-color: white
+	border-radius: $border-radius
+
+	&_input
+		padding: 8px 16px
+		border-width: 1px
+		border-radius: $border-radius
+		&:focus
+			outline: none
+			border-left: solid 4px
+
+.strength-validation
+	display: flex
+	width: 100%
+	gap: .5rem
+	color: $lightgray
+	&_item
+		flex: 1
+		height: 6px
+		background-color: $lightgray
+		transition: background-color .2s linear
+	&.easy
+		.strength-validation_item:first-child
+			background-color: $red
+	&.medium
+		.strength-validation_item
+			&:nth-child(1),
+			&:nth-child(2)
+				background-color: $yellow
+	&.strong
+		.strength-validation_item
+			background-color: $green
+			&:last-child
+				color: $black
+	&.invalid
+		.strength-validation_item
+			background-color: $red
+.ng-untouched
+	.validation
+		&_item
+			background-color: $gray
+
+.alert
+	color: $red
+
+.error-message
+	padding: 16px
+	color: $red
+	border: 1px solid
+	border-radius: $border-radius

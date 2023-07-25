@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PasswordFormComponent } from './password-form/password-form.component';
+import { RegistrationFormComponent } from './components/password-form/registration-form.component';
 
 @NgModule({
-  declarations: [AppComponent, PasswordFormComponent],
-  imports: [BrowserModule, CommonModule, FormsModule],
+  declarations: [AppComponent, RegistrationFormComponent],
+  imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

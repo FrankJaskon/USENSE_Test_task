@@ -1,0 +1,27 @@
+<form class="user-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+	<h3>Registration form</h3>
+	<label for="password">Password<span class="alert">*</span></label>
+	<div class="container">
+		<input type="password" class="user-form_input" id="password" name="password" formControlName="password"
+			(input)="onInputChange()" [class.invalid]="isPasswordInvalid">
+		<div class="strength-validation" [class]="passwordStrengthClass">
+			<div class="strength-validation_item"></div>
+			<div class="strength-validation_item"></div>
+			<div class="strength-validation_item"></div>
+		</div>
+	</div>
+	<div class="container" *ngIf="isPasswordInvalid">
+		<p class="error-message alert" *ngIf="isPasswordErrorVisible('required')">
+			Password is required
+		</p>
+		<p class="error-message alert" *ngIf="isPasswordErrorVisible('minlength')">
+			Password must be at least {{minLength}} characters
+		</p>
+		<p class="error-message alert" *ngIf="isPasswordErrorVisible('spaces')">
+			Password must not contain spaces
+		</p>
+		<p class="error-message alert" *ngIf="isPasswordErrorVisible('maxlength')">
+			Password must not be longer than {{maxLength}} characters
+		</p>
+	</div>
+</form>
